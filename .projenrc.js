@@ -5,7 +5,6 @@ const project = new TypeScriptProject({
   description: 'A string manipulation library to facilitate dealing with multiple naming conventions',
   authorName: 'Andrew Hammond',
   authorEmail: 'andrew.george.hammond@gmail.com',
-  stability: 'experimental',
 
   deps: ['@aws-crypto/client-node', '@types/aws-lambda', '@types/uuid', 'axios', 'aws-sdk', 'zlib', 'uuid'],
   devDeps: ['esbuild', 'eslint-config-prettier', 'eslint-plugin-prettier', 'jsii-release', 'prettier'],
@@ -18,6 +17,7 @@ const project = new TypeScriptProject({
   releaseToNpm: true,
   codeCov: true,
   defaultReleaseBranch: 'main',
+  repository: 'github:myhelix/namer',
 
   // packageName: undefined,            /* The "name" in package.json. */
   // projectType: ProjectType.UNKNOWN,  /* Which type of project this is (library/app). */
