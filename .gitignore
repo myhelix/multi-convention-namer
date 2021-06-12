@@ -37,6 +37,7 @@ yarn-error.log*
 !/.github/workflows/upgrade-dependencies.yml
 !/.mergify.yml
 !/.npmignore
+!/.prettierrc.js
 !/.projen/deps.json
 !/.projen/tasks.json
 !/.projenrc.js

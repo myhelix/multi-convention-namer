@@ -15,7 +15,8 @@
     "project": "./tsconfig.eslint.json"
   },
   "extends": [
-    "plugin:import/typescript"
+    "plugin:import/typescript",
+    "plugin:prettier/recommended"
   ],
   "settings": {
     "import/parsers": {

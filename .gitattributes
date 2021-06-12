@@ -9,6 +9,7 @@
 /.github/workflows/upgrade-dependencies.yml	linguist-generated
 /.mergify.yml                              	linguist-generated
 /.npmignore                                	linguist-generated
+/.prettierrc.js                            	linguist-generated
 /.projen/                                  	linguist-generated
 /.versionrc.json                           	linguist-generated
 /LICENSE                                   	linguist-generated

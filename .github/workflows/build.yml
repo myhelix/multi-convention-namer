@@ -23,6 +23,10 @@ jobs:
           git config user.email "github-actions@github.com"
       - name: Build
         run: npx projen build
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          directory: coverage
       - name: Check for changes
         id: git_diff
         run: git diff --exit-code || echo "::set-output name=has_changes::true"
