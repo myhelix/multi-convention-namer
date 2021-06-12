@@ -1,4 +1,5 @@
 const { TypeScriptProject, TextFile, FileBase, License } = require('projen');
+
 const project = new TypeScriptProject({
   name: 'namer',
   description: 'A string manipulation library to facilitate dealing with multiple naming conventions',
