@@ -1,7 +1,7 @@
 const { TypeScriptProject, TextFile, FileBase, License } = require('projen');
 
 const project = new TypeScriptProject({
-  name: 'namer',
+  name: 'multi-convention-namer',
   description: 'A string manipulation library to facilitate dealing with multiple naming conventions',
   authorName: 'Andrew Hammond',
   authorEmail: 'andrew.george.hammond@gmail.com',
@@ -17,7 +17,7 @@ const project = new TypeScriptProject({
   releaseToNpm: true,
   codeCov: true,
   defaultReleaseBranch: 'main',
-  repository: 'github:myhelix/namer',
+  repository: 'github:myhelix/multi-convention-namer',
 
   // packageName: undefined,            /* The "name" in package.json. */
   // projectType: ProjectType.UNKNOWN,  /* Which type of project this is (library/app). */
