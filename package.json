@@ -1,6 +1,10 @@
 {
-  "name": "namer",
+  "name": "multi-convention-namer",
   "description": "A string manipulation library to facilitate dealing with multiple naming conventions",
+  "repository": {
+    "type": "git",
+    "url": "github:myhelix/multi-convention-namer"
+  },
   "scripts": {
     "clobber": "npx projen clobber",
     "bump": "npx projen bump",
