@@ -1,10 +1,12 @@
-const { TypeScriptProject, TextFile, FileBase, License } = require('projen');
+const { TypeScriptProject, TextFile, FileBase } = require('projen');
 
 const project = new TypeScriptProject({
   name: 'multi-convention-namer',
   description: 'A string manipulation library to facilitate dealing with multiple naming conventions',
   authorName: 'Andrew Hammond',
   authorEmail: 'andrew.george.hammond@gmail.com',
+  copyrightOwner: 'Helix OpCo LLC',
+  copyrightPeriod: '2021',
 
   deps: ['@aws-crypto/client-node', '@types/aws-lambda', '@types/uuid', 'axios', 'aws-sdk', 'zlib', 'uuid'],
   devDeps: ['esbuild', 'eslint-config-prettier', 'eslint-plugin-prettier', 'jsii-release', 'prettier'],
@@ -14,10 +16,16 @@ const project = new TypeScriptProject({
     'By submitting this pull request, I confirm that my contribution is made under the terms of the Apache 2.0 license.',
   ],
 
-  releaseToNpm: true,
+  // docgen: true,
   codeCov: true,
   defaultReleaseBranch: 'main',
   repository: 'github:myhelix/multi-convention-namer',
+
+  // JSII options
+  compat: true,
+  catalog: true,
+  releaseToNpm: true,
+  publishToGo: { moduleName: 'multi-convention-namer-go' }, // Note GO_GITHUB_TOKEN in repo secrets
 
   // packageName: undefined,            /* The "name" in package.json. */
   // projectType: ProjectType.UNKNOWN,  /* Which type of project this is (library/app). */
