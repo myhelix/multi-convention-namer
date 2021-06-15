@@ -32,8 +32,8 @@
   "devDependencies": {
     "@types/jest": "^26.0.23",
     "@types/node": "^10.17.0",
-    "@typescript-eslint/eslint-plugin": "^4.26.1",
-    "@typescript-eslint/parser": "^4.26.1",
+    "@typescript-eslint/eslint-plugin": "^4.27.0",
+    "@typescript-eslint/parser": "^4.27.0",
     "esbuild": "^0.12.8",
     "eslint": "^7.28.0",
     "eslint-config-prettier": "^8.3.0",
@@ -43,7 +43,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "jest": "^27.0.4",
     "jest-junit": "^12",
-    "jsii-release": "^0.2.44",
+    "jsii-release": "^0.2.47",
     "json-schema": "^0.3.0",
     "npm-check-updates": "^11",
     "prettier": "^2.3.1",
@@ -56,7 +56,7 @@
     "@aws-crypto/client-node": "^2.2.1",
     "@types/aws-lambda": "^8.10.77",
     "@types/uuid": "^8.3.0",
-    "aws-sdk": "^2.927.0",
+    "aws-sdk": "^2.928.0",
     "axios": "^0.21.1",
     "uuid": "^8.3.2",
     "zlib": "^1.0.5"
