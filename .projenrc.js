@@ -1,6 +1,6 @@
-const { TypeScriptProject, TextFile, FileBase } = require('projen');
+const { JsiiProject, TextFile, FileBase } = require('projen');
 
-const project = new TypeScriptProject({
+const project = new JsiiProject({
   name: 'multi-convention-namer',
   description: 'A string manipulation library to facilitate dealing with multiple naming conventions',
   authorName: 'Andrew Hammond',
@@ -8,7 +8,6 @@ const project = new TypeScriptProject({
   copyrightOwner: 'Helix OpCo LLC',
   copyrightPeriod: '2021',
 
-  deps: ['@aws-crypto/client-node', '@types/aws-lambda', '@types/uuid', 'axios', 'aws-sdk', 'zlib', 'uuid'],
   devDeps: ['esbuild', 'eslint-config-prettier', 'eslint-plugin-prettier', 'jsii-release', 'prettier'],
 
   pullRequestTemplateContents: [
@@ -25,7 +24,7 @@ const project = new TypeScriptProject({
   compat: true,
   catalog: true,
   releaseToNpm: true,
-  publishToGo: { moduleName: 'multi-convention-namer-go' }, // Note GO_GITHUB_TOKEN in repo secrets
+  //publishToGo: { moduleName: 'multi-convention-namer-go' }, // Note GO_GITHUB_TOKEN in repo secrets
 
   // packageName: undefined,            /* The "name" in package.json. */
   // projectType: ProjectType.UNKNOWN,  /* Which type of project this is (library/app). */
