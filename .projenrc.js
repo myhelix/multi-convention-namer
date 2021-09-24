@@ -18,13 +18,17 @@ const project = new JsiiProject({
   // docgen: true,
   codeCov: true,
   defaultReleaseBranch: 'main',
-  repository: 'github:myhelix/multi-convention-namer',
+  repository: 'https://github.com/myhelix/multi-convention-namer',
 
   // JSII options
   compat: true,
   catalog: true,
   releaseToNpm: true,
   //publishToGo: { moduleName: 'multi-convention-namer-go' }, // Note GO_GITHUB_TOKEN in repo secrets
+  python: {
+    distName: 'multi-convention-namer',
+    module: 'multi_convention_namer',
+  },
 
   // packageName: undefined,            /* The "name" in package.json. */
   // projectType: ProjectType.UNKNOWN,  /* Which type of project this is (library/app). */

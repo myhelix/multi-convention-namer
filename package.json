@@ -3,7 +3,7 @@
   "description": "A string manipulation library to facilitate dealing with multiple naming conventions",
   "repository": {
     "type": "git",
-    "url": "github:myhelix/multi-convention-namer"
+    "url": "https://github.com/myhelix/multi-convention-namer"
   },
   "scripts": {
     "clobber": "npx projen clobber",
@@ -24,6 +24,7 @@
     "eslint": "npx projen eslint",
     "compat": "npx projen compat",
     "publish:npm": "npx projen publish:npm",
+    "publish:pypi": "npx projen publish:pypi",
     "docgen": "npx projen docgen",
     "release": "npx projen release",
     "projen": "npx projen"
@@ -35,7 +36,7 @@
   },
   "devDependencies": {
     "@types/jest": "^27.0.2",
-    "@types/node": "^16.10.1",
+    "@types/node": "^14.17.0",
     "@typescript-eslint/eslint-plugin": "^4.32.0",
     "@typescript-eslint/parser": "^4.32.0",
     "esbuild": "^0.13.3",
@@ -107,7 +108,12 @@
   "stability": "stable",
   "jsii": {
     "outdir": "dist",
-    "targets": {},
+    "targets": {
+      "python": {
+        "distName": "multi-convention-namer",
+        "module": "multi_convention_namer"
+      }
+    },
     "tsc": {
       "outDir": "lib",
       "rootDir": "src"
