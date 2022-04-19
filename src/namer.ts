@@ -233,7 +233,7 @@ export class Namer {
    * @param props properties to over-ride the parent props
    */
   public addPrefix(prefix: Namer | string[], props?: NamerProps): Namer {
-    const p = prefix instanceof Namer ? prefix.parts : prefix;
+    const p = Array.isArray(prefix) ? prefix : prefix.parts;
     return new Namer([...p, ...this.parts], { ...this.props, ...props });
   }
 
@@ -243,7 +243,7 @@ export class Namer {
    * @param props properties to over-ride the parent props
    */
   public addSuffix(suffix: Namer | string[], props?: NamerProps): Namer {
-    const s = suffix instanceof Namer ? suffix.parts : suffix;
+    const s = Array.isArray(suffix) ? suffix : suffix.parts;
     return new Namer([...this.parts, ...s], { ...this.props, ...props });
   }
 
