@@ -1,183 +1,335 @@
-# API Reference
-
-**Classes**
-
-Name|Description
-----|-----------
-[Namer](#multi-convention-namer-namer)|*No description*
+# API Reference <a name="API Reference"></a>
 
 
-**Structs**
+## Structs <a name="Structs"></a>
 
-Name|Description
-----|-----------
-[NamerProps](#multi-convention-namer-namerprops)|*No description*
+### NamerProps <a name="multi-convention-namer.NamerProps"></a>
 
+#### Initializer <a name="[object Object].Initializer"></a>
 
-**Enums**
+```typescript
+import { NamerProps } from 'multi-convention-namer'
 
-Name|Description
-----|-----------
-[Format](#multi-convention-namer-format)|Too many naming conventions?
-
-
-
-## class Namer  <a id="multi-convention-namer-namer"></a>
-
-
-
-
-### Initializer
-
-
-Create a namer.
-
-```ts
-new Namer(parts: Array<string>, props?: NamerProps)
+const namerProps: NamerProps = { ... }
 ```
 
-* **parts** (<code>Array<string></code>)  an array of strings to be composed into a name.
-* **props** (<code>[NamerProps](#multi-convention-namer-namerprops)</code>)  modify the behavior of namer.
-  * **defaultFormat** (<code>[Format](#multi-convention-namer-format)</code>)  When using toString(), which format should be provided? __*Default*__: raise an error if no default specified and toString invoked
-  * **deleteCharacters** (<code>string</code>)  Characters to strip from name parts. __*Default*__: '-_'
-  * **illegalCharacters** (<code>string</code>)  Characters which will cause an error if included in a name part tested AFTER deleteCharacters. __*Default*__: '!
-  * **maxLength** (<code>number</code>)  How long can the name be? __*Default*__: no limit
-  * **maxLengthTruncateHead** (<code>boolean</code>)  If the name exceeds maxLength, should I snip the head or the tail? __*Default*__: false
-  * **maxPartLength** (<code>number</code>)  How long can a part of the name be? __*Default*__: no limit
-  * **maxPartLengthTruncateHead** (<code>boolean</code>)  If the part exceeds maxPartLength, should I snip the head or the tail? __*Default*__: false
-  * **uniqueSeed** (<code>any</code>)  Include a uniquifying suffix? __*Default*__: do not include a uniquifier
+##### `defaultFormat`<sup>Optional</sup> <a name="multi-convention-namer.NamerProps.property.defaultFormat"></a>
 
-
-
-### Properties
-
-
-Name | Type | Description 
------|------|-------------
-**camel** | <code>string</code> | camelCase.
-**kebab** | <code>string</code> | kebab-case.
-**parts** | <code>Array<string></code> | <span></span>
-**partsWithUnique** | <code>Array<string></code> | <span></span>
-**pascal** | <code>string</code> | PascalCase.
-**snake** | <code>string</code> | snake_case.
-**props**? | <code>[NamerProps](#multi-convention-namer-namerprops)</code> | __*Optional*__
-
-### Methods
-
-
-#### addPrefix(prefix, props?) <a id="multi-convention-namer-namer-addprefix"></a>
-
-Create a new Namer with the added prefix.
-
-```ts
-addPrefix(prefix: Namer &#124; Array<string>, props?: NamerProps): Namer
+```typescript
+public readonly defaultFormat: Format;
 ```
 
-* **prefix** (<code>[Namer](#multi-convention-namer-namer) &#124; Array<string></code>)  the prefix to add.
-* **props** (<code>[NamerProps](#multi-convention-namer-namerprops)</code>)  properties to over-ride the parent props.
-  * **defaultFormat** (<code>[Format](#multi-convention-namer-format)</code>)  When using toString(), which format should be provided? __*Default*__: raise an error if no default specified and toString invoked
-  * **deleteCharacters** (<code>string</code>)  Characters to strip from name parts. __*Default*__: '-_'
-  * **illegalCharacters** (<code>string</code>)  Characters which will cause an error if included in a name part tested AFTER deleteCharacters. __*Default*__: '!
-  * **maxLength** (<code>number</code>)  How long can the name be? __*Default*__: no limit
-  * **maxLengthTruncateHead** (<code>boolean</code>)  If the name exceeds maxLength, should I snip the head or the tail? __*Default*__: false
-  * **maxPartLength** (<code>number</code>)  How long can a part of the name be? __*Default*__: no limit
-  * **maxPartLengthTruncateHead** (<code>boolean</code>)  If the part exceeds maxPartLength, should I snip the head or the tail? __*Default*__: false
-  * **uniqueSeed** (<code>any</code>)  Include a uniquifying suffix? __*Default*__: do not include a uniquifier
+- *Type:* [`multi-convention-namer.Format`](#multi-convention-namer.Format)
+- *Default:* raise an error if no default specified and toString invoked
 
-__Returns__:
-* <code>[Namer](#multi-convention-namer-namer)</code>
+When using toString(), which format should be provided?
 
-#### addSuffix(suffix, props?) <a id="multi-convention-namer-namer-addsuffix"></a>
+---
 
-Create a new Namer with the added suffix.
+##### `deleteCharacters`<sup>Optional</sup> <a name="multi-convention-namer.NamerProps.property.deleteCharacters"></a>
 
-```ts
-addSuffix(suffix: Namer &#124; Array<string>, props?: NamerProps): Namer
+```typescript
+public readonly deleteCharacters: string;
 ```
 
-* **suffix** (<code>[Namer](#multi-convention-namer-namer) &#124; Array<string></code>)  the suffix to add.
-* **props** (<code>[NamerProps](#multi-convention-namer-namerprops)</code>)  properties to over-ride the parent props.
-  * **defaultFormat** (<code>[Format](#multi-convention-namer-format)</code>)  When using toString(), which format should be provided? __*Default*__: raise an error if no default specified and toString invoked
-  * **deleteCharacters** (<code>string</code>)  Characters to strip from name parts. __*Default*__: '-_'
-  * **illegalCharacters** (<code>string</code>)  Characters which will cause an error if included in a name part tested AFTER deleteCharacters. __*Default*__: '!
-  * **maxLength** (<code>number</code>)  How long can the name be? __*Default*__: no limit
-  * **maxLengthTruncateHead** (<code>boolean</code>)  If the name exceeds maxLength, should I snip the head or the tail? __*Default*__: false
-  * **maxPartLength** (<code>number</code>)  How long can a part of the name be? __*Default*__: no limit
-  * **maxPartLengthTruncateHead** (<code>boolean</code>)  If the part exceeds maxPartLength, should I snip the head or the tail? __*Default*__: false
-  * **uniqueSeed** (<code>any</code>)  Include a uniquifying suffix? __*Default*__: do not include a uniquifier
+- *Type:* `string`
+- *Default:* '-_'
 
-__Returns__:
-* <code>[Namer](#multi-convention-namer-namer)</code>
+Characters to strip from name parts.
 
-#### enforceMaxLength(raw) <a id="multi-convention-namer-namer-enforcemaxlength"></a>
+---
 
+##### `illegalCharacters`<sup>Optional</sup> <a name="multi-convention-namer.NamerProps.property.illegalCharacters"></a>
 
-
-```ts
-enforceMaxLength(raw: string): string
+```typescript
+public readonly illegalCharacters: string;
 ```
 
-* **raw** (<code>string</code>)  *No description*
+- *Type:* `string`
+- *Default:* '!
 
-__Returns__:
-* <code>string</code>
+Characters which will cause an error if included in a name part tested AFTER deleteCharacters.
 
-#### toString() <a id="multi-convention-namer-namer-tostring"></a>
+---
 
+##### `maxLength`<sup>Optional</sup> <a name="multi-convention-namer.NamerProps.property.maxLength"></a>
 
-
-```ts
-toString(): string
+```typescript
+public readonly maxLength: number;
 ```
 
+- *Type:* `number`
+- *Default:* no limit
 
-__Returns__:
-* <code>string</code>
+How long can the name be?
 
-#### unique(uniqueItem) <a id="multi-convention-namer-namer-unique"></a>
+---
 
-Create a new Namer with a unique suffix.
+##### `maxLengthTruncateHead`<sup>Optional</sup> <a name="multi-convention-namer.NamerProps.property.maxLengthTruncateHead"></a>
 
-```ts
-unique(uniqueItem: any): Namer
+```typescript
+public readonly maxLengthTruncateHead: boolean;
 ```
 
-* **uniqueItem** (<code>any</code>)  : any value to use as the seed for generating a unique hash.
+- *Type:* `boolean`
+- *Default:* false
 
-__Returns__:
-* <code>[Namer](#multi-convention-namer-namer)</code>
+If the name exceeds maxLength, should I snip the head or the tail?
+
+---
+
+##### `maxPartLength`<sup>Optional</sup> <a name="multi-convention-namer.NamerProps.property.maxPartLength"></a>
+
+```typescript
+public readonly maxPartLength: number;
+```
+
+- *Type:* `number`
+- *Default:* no limit
+
+How long can a part of the name be?
+
+---
+
+##### `maxPartLengthTruncateHead`<sup>Optional</sup> <a name="multi-convention-namer.NamerProps.property.maxPartLengthTruncateHead"></a>
+
+```typescript
+public readonly maxPartLengthTruncateHead: boolean;
+```
+
+- *Type:* `boolean`
+- *Default:* false
+
+If the part exceeds maxPartLength, should I snip the head or the tail?
+
+---
+
+##### `uniqueSeed`<sup>Optional</sup> <a name="multi-convention-namer.NamerProps.property.uniqueSeed"></a>
+
+```typescript
+public readonly uniqueSeed: any;
+```
+
+- *Type:* `any`
+- *Default:* do not include a uniquifier
+
+Include a uniquifying suffix?
+
+If so, this is the seed for that suffix.
+
+---
+
+## Classes <a name="Classes"></a>
+
+### Namer <a name="multi-convention-namer.Namer"></a>
+
+#### Initializers <a name="multi-convention-namer.Namer.Initializer"></a>
+
+```typescript
+import { Namer } from 'multi-convention-namer'
+
+new Namer(parts: string[], props?: NamerProps)
+```
+
+##### `parts`<sup>Required</sup> <a name="multi-convention-namer.Namer.parameter.parts"></a>
+
+- *Type:* `string`[]
+
+an array of strings to be composed into a name.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="multi-convention-namer.Namer.parameter.props"></a>
+
+- *Type:* [`multi-convention-namer.NamerProps`](#multi-convention-namer.NamerProps)
+
+modify the behavior of namer.
+
+---
+
+#### Methods <a name="Methods"></a>
+
+##### `addPrefix` <a name="multi-convention-namer.Namer.addPrefix"></a>
+
+```typescript
+public addPrefix(prefix: Namer | string[], props?: NamerProps)
+```
+
+###### `prefix`<sup>Required</sup> <a name="multi-convention-namer.Namer.parameter.prefix"></a>
+
+- *Type:* [`multi-convention-namer.Namer`](#multi-convention-namer.Namer) | `string`[]
+
+the prefix to add.
+
+---
+
+###### `props`<sup>Optional</sup> <a name="multi-convention-namer.Namer.parameter.props"></a>
+
+- *Type:* [`multi-convention-namer.NamerProps`](#multi-convention-namer.NamerProps)
+
+properties to over-ride the parent props.
+
+---
+
+##### `addSuffix` <a name="multi-convention-namer.Namer.addSuffix"></a>
+
+```typescript
+public addSuffix(suffix: Namer | string[], props?: NamerProps)
+```
+
+###### `suffix`<sup>Required</sup> <a name="multi-convention-namer.Namer.parameter.suffix"></a>
+
+- *Type:* [`multi-convention-namer.Namer`](#multi-convention-namer.Namer) | `string`[]
+
+the suffix to add.
+
+---
+
+###### `props`<sup>Optional</sup> <a name="multi-convention-namer.Namer.parameter.props"></a>
+
+- *Type:* [`multi-convention-namer.NamerProps`](#multi-convention-namer.NamerProps)
+
+properties to over-ride the parent props.
+
+---
+
+##### `enforceMaxLength` <a name="multi-convention-namer.Namer.enforceMaxLength"></a>
+
+```typescript
+public enforceMaxLength(raw: string)
+```
+
+###### `raw`<sup>Required</sup> <a name="multi-convention-namer.Namer.parameter.raw"></a>
+
+- *Type:* `string`
+
+---
+
+##### `toString` <a name="multi-convention-namer.Namer.toString"></a>
+
+```typescript
+public toString()
+```
+
+##### `unique` <a name="multi-convention-namer.Namer.unique"></a>
+
+```typescript
+public unique(uniqueItem: any)
+```
+
+###### `uniqueItem`<sup>Required</sup> <a name="multi-convention-namer.Namer.parameter.uniqueItem"></a>
+
+- *Type:* `any`
+
+: any value to use as the seed for generating a unique hash.
+
+---
+
+
+#### Properties <a name="Properties"></a>
+
+##### `camel`<sup>Required</sup> <a name="multi-convention-namer.Namer.property.camel"></a>
+
+```typescript
+public readonly camel: string;
+```
+
+- *Type:* `string`
+
+camelCase.
+
+---
+
+##### `kebab`<sup>Required</sup> <a name="multi-convention-namer.Namer.property.kebab"></a>
+
+```typescript
+public readonly kebab: string;
+```
+
+- *Type:* `string`
+
+kebab-case.
+
+---
+
+##### `parts`<sup>Required</sup> <a name="multi-convention-namer.Namer.property.parts"></a>
+
+```typescript
+public readonly parts: string[];
+```
+
+- *Type:* `string`[]
+
+---
+
+##### `partsWithUnique`<sup>Required</sup> <a name="multi-convention-namer.Namer.property.partsWithUnique"></a>
+
+```typescript
+public readonly partsWithUnique: string[];
+```
+
+- *Type:* `string`[]
+
+---
+
+##### `pascal`<sup>Required</sup> <a name="multi-convention-namer.Namer.property.pascal"></a>
+
+```typescript
+public readonly pascal: string;
+```
+
+- *Type:* `string`
+
+PascalCase.
+
+---
+
+##### `snake`<sup>Required</sup> <a name="multi-convention-namer.Namer.property.snake"></a>
+
+```typescript
+public readonly snake: string;
+```
+
+- *Type:* `string`
+
+snake_case.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="multi-convention-namer.Namer.property.props"></a>
+
+```typescript
+public readonly props: NamerProps;
+```
+
+- *Type:* [`multi-convention-namer.NamerProps`](#multi-convention-namer.NamerProps)
+
+---
 
 
 
-## struct NamerProps  <a id="multi-convention-namer-namerprops"></a>
+## Enums <a name="Enums"></a>
 
-
-
-
-
-
-Name | Type | Description 
------|------|-------------
-**defaultFormat**? | <code>[Format](#multi-convention-namer-format)</code> | When using toString(), which format should be provided?<br/>__*Default*__: raise an error if no default specified and toString invoked
-**deleteCharacters**? | <code>string</code> | Characters to strip from name parts.<br/>__*Default*__: '-_'
-**illegalCharacters**? | <code>string</code> | Characters which will cause an error if included in a name part tested AFTER deleteCharacters.<br/>__*Default*__: '!
-**maxLength**? | <code>number</code> | How long can the name be?<br/>__*Default*__: no limit
-**maxLengthTruncateHead**? | <code>boolean</code> | If the name exceeds maxLength, should I snip the head or the tail?<br/>__*Default*__: false
-**maxPartLength**? | <code>number</code> | How long can a part of the name be?<br/>__*Default*__: no limit
-**maxPartLengthTruncateHead**? | <code>boolean</code> | If the part exceeds maxPartLength, should I snip the head or the tail?<br/>__*Default*__: false
-**uniqueSeed**? | <code>any</code> | Include a uniquifying suffix?<br/>__*Default*__: do not include a uniquifier
-
-
-
-## enum Format  <a id="multi-convention-namer-format"></a>
+### Format <a name="Format"></a>
 
 Too many naming conventions?
 
-Name | Description
------|-----
-**KEBAB** |
-**PASCAL** |
-**SNAKE** |
-**CAMEL** |
+#### `KEBAB` <a name="multi-convention-namer.Format.KEBAB"></a>
 
+---
+
+
+#### `PASCAL` <a name="multi-convention-namer.Format.PASCAL"></a>
+
+---
+
+
+#### `SNAKE` <a name="multi-convention-namer.Format.SNAKE"></a>
+
+---
+
+
+#### `CAMEL` <a name="multi-convention-namer.Format.CAMEL"></a>
+
+---
 
