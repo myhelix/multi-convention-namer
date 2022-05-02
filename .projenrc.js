@@ -1,6 +1,6 @@
-const { JsiiProject, TextFile, FileBase } = require('projen');
+const { cdk, javascript } = require('projen');
 
-const project = new JsiiProject({
+const project = new cdk.JsiiProject({
   name: 'multi-convention-namer',
   description: 'A string manipulation library to facilitate dealing with multiple naming conventions',
   authorName: 'Andrew Hammond',
@@ -30,24 +30,14 @@ const project = new JsiiProject({
     module: 'multi_convention_namer',
   },
 
-  // packageName: undefined,            /* The "name" in package.json. */
-  // projectType: ProjectType.UNKNOWN,  /* Which type of project this is (library/app). */
-  // releaseWorkflow: undefined,        /* Define a GitHub workflow for releasing from "main" when new versions are bumped. */
-});
-
-// include prettier
-project.eslint.config.extends = [...project.eslint.config.extends, 'plugin:prettier/recommended'];
-const prettierrc = new TextFile(project, '.prettierrc.js', {
-  lines: [
-    `// ${FileBase.PROJEN_MARKER}`,
-    'module.exports =  {',
-    'semi:  true,',
-    "trailingComma:  'all',",
-    'singleQuote:  true,',
-    'printWidth:  120,',
-    'tabWidth:  2,',
-    '};',
-  ],
+  prettier: true,
+  prettierOptions: {
+    settings: {
+      printWidth: 120,
+      singleQuote: true,
+      trailingComma: javascript.TrailingComma.ALL,
+    },
+  },
 });
 
 project.synth();
