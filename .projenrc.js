@@ -1,6 +1,8 @@
 const { cdk, javascript } = require('projen');
 
 const project = new cdk.JsiiProject({
+  license: 'UNLICENSED',
+  licensed: false,
   name: 'multi-convention-namer',
   description: 'A string manipulation library to facilitate dealing with multiple naming conventions',
   authorName: 'Andrew Hammond',
