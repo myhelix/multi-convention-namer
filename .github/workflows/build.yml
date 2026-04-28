@@ -74,10 +74,12 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
       - name: Push changes
+        env:
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
         run: |2-
             git add .
             git commit -s -m "chore: self mutation"
-            git push origin HEAD:${{ github.event.pull_request.head.ref }}
+            git push origin HEAD:"$HEAD_REF"
   package-js:
     needs: build
     runs-on: ubuntu-latest
