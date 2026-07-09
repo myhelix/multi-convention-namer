@@ -69,7 +69,7 @@ project.package.addPackageResolutions('eslint@8.57.1');
 //
 // The real long-term fix is upgrading the jsii 1.x toolchain; these keep it on 1.x.
 const pyPackageRun = [
-  "echo 'importlib-metadata<8' > \"$RUNNER_TEMP/pip-constraint.txt\"",
+  'echo "importlib-metadata<8" > "$RUNNER_TEMP/pip-constraint.txt"',
   'export PIP_CONSTRAINT="$RUNNER_TEMP/pip-constraint.txt"',
   'cd .repo && npx projen package:python',
 ].join('\n');

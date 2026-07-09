@@ -155,7 +155,7 @@ jobs:
         run: mv dist dist.old
       - name: Create python artifact
         run: |-
-          echo 'importlib-metadata<8' > "$RUNNER_TEMP/pip-constraint.txt"
+          echo "importlib-metadata<8" > "$RUNNER_TEMP/pip-constraint.txt"
           export PIP_CONSTRAINT="$RUNNER_TEMP/pip-constraint.txt"
           cd .repo && npx projen package:python
       - name: Collect python artifact
