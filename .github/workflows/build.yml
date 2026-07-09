@@ -132,7 +132,7 @@ jobs:
           node-version: 18.x
       - uses: actions/setup-python@v5
         with:
-          python-version: 3.x
+          python-version: "3.11"
       - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:
@@ -154,6 +154,9 @@ jobs:
       - name: Move build artifact out of the way
         run: mv dist dist.old
       - name: Create python artifact
-        run: cd .repo && npx projen package:python
+        run: |-
+          echo 'importlib-metadata<8' > "$RUNNER_TEMP/pip-constraint.txt"
+          export PIP_CONSTRAINT="$RUNNER_TEMP/pip-constraint.txt"
+          cd .repo && npx projen package:python
       - name: Collect python artifact
         run: mv .repo/dist dist
